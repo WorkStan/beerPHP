@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__.'/../vendor/autoload.php';
+
+use App\Command\MemoryCommand;
+use App\Command\MemoryLeakCommand;
+use App\Command\MemoryLeakRefactoringCommand;
+use App\Command\MemoryLeakRefactoringFiveCommand;
+use App\Command\MemoryLeakRefactoringFourCommand;
+use App\Command\SymlinkMemoryLeakCommand;
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+
+$application->add(new MemoryCommand());
+$application->add(new MemoryLeakCommand());
+$application->add(new MemoryLeakRefactoringCommand());
+$application->add(new MemoryLeakRefactoringFourCommand());
+$application->add(new MemoryLeakRefactoringFiveCommand());
+$application->add(new SymlinkMemoryLeakCommand());
+
+$application->run();
